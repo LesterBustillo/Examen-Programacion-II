@@ -120,20 +120,20 @@ public class editor extends javax.swing.JFrame {
            BufferedReader br =new BufferedReader(fr);
            String texto="";
            String linea="";
-           while(((linea=br.readLine())!=null)){
+           while(((linea=br.readLine())!=null)){//trae el texto linea por linea
                texto+=linea+"\n";
            }
-           txtarchivo.setText(texto);
-           JOptionPane.showMessageDialog(null,"Archivo Leido Correctamente");
+           txtarchivo.setText(texto);//rellena el jt texto con el archivo
+           JOptionPane.showMessageDialog(null,"Archivo Leido Correctamente");//muestrea una ventana avisando que se leio el archivo
        }
        catch( IOException e){
     }            
     }//GEN-LAST:event_btnabrirActionPerformed
 
     private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarActionPerformed
-        String nombreArchivo = txtNombre.getText();
-        String carpeta = System.getProperty("user.dir");
-        String direccionCompleta =carpeta + "/" + nombreArchivo + ".txt";
+        String nombreArchivo = txtNombre.getText(); //variable que da el nombre al archivo a crear
+        String carpeta = System.getProperty("user.dir");//variable que dara la direccion a guardar el archivo
+        String direccionCompleta =carpeta + "/" + nombreArchivo + ".txt";//varibale que dara la direccion donde se guardar el archivo
         FileWriter ubicacion = null;
         
         try{
@@ -143,9 +143,9 @@ public class editor extends javax.swing.JFrame {
         }
         try{
             BufferedWriter escritor = new BufferedWriter(ubicacion);
-            escritor.write(txtarchivo.getText());
-            escritor.close();
-            JOptionPane.showMessageDialog(null,"Archivo Guardado Correctamente");
+            escritor.write(txtarchivo.getText());//guarda el texto que se encuentra en text area
+            escritor.close();//cierra el comando que guarda el archivo
+            JOptionPane.showMessageDialog(null,"Archivo Guardado Correctamente");//envia un mensaje que informa que se guardo el archivo
            
            } catch (IOException ex) {
     }//GEN-LAST:event_btnguardarActionPerformed
